@@ -7,7 +7,7 @@ Trailer+ consists in a Sign Up/Sign In landing page using Firebase, where you ca
 _Notice:_ Some things don't work yet. Also, I recommend using Google Chrome.
 
 ## Instalation
-Commands you need to run
+Commands you need to run for the dependencies
 * `npm install`
 * `npm install react-router-dom@latest`
 * `npm install react-helmet-async`
