@@ -25,7 +25,7 @@ const ErrorView = () => {
           </Text>
           <Link to="/">
             <Text h4 css={{ textAlign: "center" }}>
-              Haz clic aqui para volver al inicio
+              Haz clic aqui para volver a home
             </Text>
           </Link>
         </Card.Body>

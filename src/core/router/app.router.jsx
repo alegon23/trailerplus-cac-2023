@@ -5,6 +5,8 @@ import ErrorView from "../../pages/error/views/ErrorView";
 import PublicLayout from "../layouts/public/PublicLayout";
 import PublicRoutes from "../auth/components/PublicRoutes";
 import ProtectedRoutes from "../auth/components/ProtectedRoutes";
+import MoviesView from "../../pages/moviesAndSeries/views/MoviesView";
+import SeriesView from "../../pages/moviesAndSeries/views/SeriesView";
 
 export const appRouter = createBrowserRouter([
   {
@@ -27,6 +29,25 @@ export const appRouter = createBrowserRouter([
       </PublicRoutes>
     ),
   },
+  {
+    path: "/movies",
+    element: (
+      <ProtectedRoutes>
+        <PublicLayout>
+          <MoviesView />
+        </PublicLayout>
+      </ProtectedRoutes>
+    ),
+  },
+  {path: "/series",
+  element: (
+    <ProtectedRoutes>
+      <PublicLayout>
+        <SeriesView />
+      </PublicLayout>
+    </ProtectedRoutes>
+  ),
+},
   {
     path: "*",
     element: (

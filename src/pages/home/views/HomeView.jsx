@@ -60,9 +60,7 @@ const HomeView = () => {
       if (random > 5)
         return popularMovies[Math.floor(Math.random() * popularMovies.length)];
 
-      return popularTVIsLoading[
-        Math.floor(Math.random() * popularTVIsLoading.length)
-      ];
+      return popularTV[Math.floor(Math.random() * popularTV.length)];
     };
 
     const randomMovieOrSerie = getRandomMovieOrSerie();

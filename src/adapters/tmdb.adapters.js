@@ -11,6 +11,7 @@ export const moviesAdapter = (data) => {
       : "https://via.placeholder.com/1920x1080?text=No+Image+Available",
     rating: movie.vote_average,
     releaseDate: movie.release_date,
+    type: "movie",
   }));
 };
 
@@ -25,5 +26,6 @@ export const tvAdapter = (data) => {
       : "https://via.placeholder.com/1920x1080?text=No+Image+Available",
       rating: tv.vote_average,
       releaseDate: tv.first_air_date,
+      type: "tv",
   }));
 };

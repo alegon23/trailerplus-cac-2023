@@ -11,6 +11,15 @@ export const getPopularMovies = async () => {
   return moviesAdapter(data.results);
 };
 
+export const getPopularMoviesPages = async (num) => {
+  const { data } = await TMDB_API.get(`${TMDB_API_paths.movies.popular}`, {
+    params: {
+      page: num,
+    },
+  });
+  return moviesAdapter(data.results);
+};
+
 /*export const getAMovie = async() => {
     const data = TMDB_API.get(`${TMDB_API_paths.movies.aMovie}`);
     return data;
@@ -53,6 +62,15 @@ export const getOnTheAirTV = async () => {
 
 export const getPopularTV = async () => {
   const { data } = await TMDB_API.get(`${TMDB_API_paths.tv.popular}`);
+  return tvAdapter(data.results);
+};
+
+export const getPopularTVPages = async (num) => {
+  const { data } = await TMDB_API.get(`${TMDB_API_paths.tv.popular}`, {
+    params: {
+      page: num,
+    },
+  });
   return tvAdapter(data.results);
 };
 

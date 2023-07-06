@@ -16,7 +16,7 @@ const CarouselSlides = ({title, data, isLoading}) => {
             <SwiperSlide key={elem.id} style={{background: "transparent"}}>
                 <CarouselCards id={elem.id} title={elem.title} bg={elem.backdrop} footer={`🟊 ${elem.rating}`} textButtonA="Ver" textButtonB="Fav" onPressedButtonA={() => {
                   openModal({
-                    content: <Details id={elem.id} title={elem.title} description={elem.description}/>,
+                    content: <Details id={elem.id} title={elem.title} description={elem.description} type={elem.type}/>,
                   });
                 }}/>
             </SwiperSlide>

@@ -12,6 +12,7 @@ const CarouselCards = ({
   textButtonB = "",
   colorButtonA = "secondary",
   colorButtonB = "error",
+  ...props
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +34,7 @@ const CarouselCards = ({
     });
   };
   return (
-    <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} {...props}>
       <Card.Header
         css={{
           position: "absolute",
