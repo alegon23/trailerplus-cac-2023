@@ -3,6 +3,7 @@ Project created with React during the course **Codo a Codo 2023**
 
 ## Overview
 Trailer+ consists in a Sign Up/Sign In landing page using Firebase, where you can use an email and a password or your Google account. Once you've logged in, you'll see movies and series obtained from the TMDB API. For each movie/series you can see its synopsis and a video.
+_Edit:_ Now the links for series and movies in the navbar work!
 
 _Notice:_ Some things don't work yet. Also, I recommend using Google Chrome.
 
