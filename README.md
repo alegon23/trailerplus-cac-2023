@@ -8,7 +8,7 @@ _Edit:_ Now the links for series and movies in the navbar work!
 
 _Edit 2:_ Now you can add/remove favorites!
 
-_Notice:_ Some things don't work yet. Also, I recommend using Google Chrome.
+_Notice:_ I recommend using Google Chrome.
 
 ## Instalation
 Commands you need to run for the dependencies
