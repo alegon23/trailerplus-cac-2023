@@ -1,6 +1,5 @@
 .loginBackground {
     background-image: url("../../../assets/background.jpg");
     background-size: contain;
-    background-repeat: "no-repeat";
-    background-position: "center";
+    background-position: center;
   }

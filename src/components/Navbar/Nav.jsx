@@ -42,6 +42,10 @@ const Nav = () => {
       name: "Peliculas",
       path: "/movies",
     },
+    {
+      name: "Mis Favoritos",
+      path: "/favorites"
+    },
   ];
 
   return (

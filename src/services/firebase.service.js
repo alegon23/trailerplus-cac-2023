@@ -5,7 +5,15 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../core/config/firebase.config";
+import {
+  DOCUMENTS,
+  createDocument,
+  getDocumentById,
+  getDocuments,
+  updateDocument,
+} from "../core/db/firestore.db";
 
+//AUTH
 export const signInWithEmail = async (email, password) => {
   const user = await signInWithEmailAndPassword(auth, email, password);
   return user;
@@ -25,3 +33,36 @@ export const signInWithGoogle = async () => {
 export const signOut = async () => {
   await auth.signOut();
 };
+
+//FIRESTORE
+export const saveUserInDB = async (user) => {
+  const userDB = {
+    id: user.uid,
+    email: user.email,
+    name: user.displayName,
+    photo: user.photoURL,
+  };
+
+  const res = await createDocument(DOCUMENTS.USERS, userDB);
+
+  return res;
+};
+
+export const getUsers = async () => {
+  const users = await getDocuments(DOCUMENTS.USERS);
+  return users;
+};
+
+export const updateFavorites = async (userId, favorites) => {
+  const res = await updateDocument(userId, DOCUMENTS.FAVORITES, favorites);
+
+  return res;
+};
+
+export const getFavorites = async (userID) => {
+  const favorites = await getDocumentById(userID, DOCUMENTS.FAVORITES);
+
+  const userFavorites = favorites || { data: [] };
+
+  return userFavorites.data;
+}

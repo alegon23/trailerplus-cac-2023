@@ -2,8 +2,10 @@ import React from "react";
 import CarouselCards from "../../../components/CarouselCards/CarouselCards";
 import Details from "../../../components/Details/Details";
 import { useModal } from "../../../hooks/useModal";
+import useFavorites from "../../../hooks/useFavorites";
 
 const MoviesAndSeriesList = ({data}) => {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
     const { openModal } = useModal();
   return (
     <>
@@ -16,7 +18,7 @@ const MoviesAndSeriesList = ({data}) => {
             bg={item.backdrop}
             footer={`🟊 ${item.rating}`}
             textButtonA="Ver"
-            textButtonB="Fav"
+            textButtonB={isFavorite(item.id) ? "♥ Eliminar": "♡ Agregar"}
             onPressedButtonA={() => {
               openModal({
                 content: (
@@ -28,6 +30,11 @@ const MoviesAndSeriesList = ({data}) => {
                   />
                 ),
               });
+            }}
+            onPressedButtonB={() => {
+              isFavorite(item.id)
+                ? removeFavorite(item.id)
+                : addFavorite({id: item.id, type: item.type});
             }}
             style={{ marginBottom: "20px" }}
           />

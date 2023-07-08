@@ -33,6 +33,17 @@ const CarouselCards = ({
       footer,
     });
   };
+
+  const handleClickBtnB = (e) => {
+    onPressedButtonB({
+      event: e,
+      id,
+      title,
+      bg,
+      footer,
+    });
+  };
+
   return (
     <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} {...props}>
       <Card.Header
@@ -79,7 +90,7 @@ const CarouselCards = ({
             {textButtonA}
           </Button>
           <Spacer x={0.5} />
-          <Button size="xs" color={colorButtonB} onPress={onPressedButtonB}>
+          <Button size="xs" color={colorButtonB} onPress={handleClickBtnB}>
             {textButtonB}
           </Button>
         </Row>

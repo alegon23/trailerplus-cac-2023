@@ -41,8 +41,9 @@ export const getUpcomingMovies = async () => {
 };
 
 export const getMovieDetails = async (id) => {
-  const { data } = await TMDB_API.get(`${TMDB_API_paths.movies.details(id)}`);
-  return data;
+  const { data } = await TMDB_API.get(TMDB_API_paths.movies.details(id));
+  const adapted = moviesAdapter([data]);
+  return adapted;
 };
 
 export const getMovieImages = async (id) => {
@@ -81,7 +82,8 @@ export const getTopRatedTV = async () => {
 
 export const getTVDetails = async (id) => {
   const { data } = await TMDB_API.get(`${TMDB_API_paths.tv.details(id)}`);
-  return data;
+  const adapted = tvAdapter([data])
+  return adapted;
 };
 
 export const getTVImages = async (id) => {

@@ -7,6 +7,7 @@ import PublicRoutes from "../auth/components/PublicRoutes";
 import ProtectedRoutes from "../auth/components/ProtectedRoutes";
 import MoviesView from "../../pages/moviesAndSeries/views/MoviesView";
 import SeriesView from "../../pages/moviesAndSeries/views/SeriesView";
+import FavoritesView from "../../pages/favorites/views/FavoritesView";
 
 export const appRouter = createBrowserRouter([
   {
@@ -39,15 +40,26 @@ export const appRouter = createBrowserRouter([
       </ProtectedRoutes>
     ),
   },
-  {path: "/series",
-  element: (
-    <ProtectedRoutes>
-      <PublicLayout>
-        <SeriesView />
-      </PublicLayout>
-    </ProtectedRoutes>
-  ),
-},
+  {
+    path: "/series",
+    element: (
+      <ProtectedRoutes>
+        <PublicLayout>
+          <SeriesView />
+        </PublicLayout>
+      </ProtectedRoutes>
+    ),
+  },
+  {
+    path: "/favorites",
+    element: (
+      <ProtectedRoutes>
+        <PublicLayout>
+          <FavoritesView />
+        </PublicLayout>
+      </ProtectedRoutes>
+    ),
+  },
   {
     path: "*",
     element: (

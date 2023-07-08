@@ -2,6 +2,8 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 import { AUTH_LOGIN, authKey } from "../../../core/auth/reducers/authReducer";
 import {
+  getUsers,
+  saveUserInDB,
   signInWithEmail,
   signInWithGoogle,
   signUpWithEmail,
@@ -10,7 +12,7 @@ import {
 const useLogin = () => {
   const { dispatch: dispatchAuth } = useAuth();
 
-  const saveInStorage = async (res) => {
+  const saveInStorage = async (res, saveInDB = true) => {
     localStorage.setItem(
       authKey,
       JSON.stringify({
@@ -18,6 +20,12 @@ const useLogin = () => {
         user: res.user,
       })
     );
+    if (!saveInDB) return;
+
+    const users = await getUsers();
+    const isRegistered = users.find((user) => user.id === res.user.uid);
+
+    if (!isRegistered) saveUserInDB(res.user);
   };
 
   const signInGoogle = async () => {
@@ -79,7 +87,7 @@ const useLogin = () => {
 
       if (!res) return;
 
-      saveInStorage(res);
+      saveInStorage(res, false);
 
       dispatchAuth({
         type: AUTH_LOGIN,

@@ -5,6 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "../auth/providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import ModalProvider from "../../providers/ModalProvider";
+import FavoritesProvider from "../../providers/FavoritesProvider";
 
 const RootProvider = ({ children }) => {
   return (
@@ -12,7 +13,9 @@ const RootProvider = ({ children }) => {
       <Toaster position="top-center" reverseOrder={false} />
       <NextUIProvider theme={darkTheme}>
         <AuthProvider>
-          <ModalProvider>{children}</ModalProvider>
+          <ModalProvider>
+            <FavoritesProvider>{children}</FavoritesProvider>
+          </ModalProvider>
         </AuthProvider>
       </NextUIProvider>
     </HelmetProvider>
